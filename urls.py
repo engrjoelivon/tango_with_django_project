@@ -10,6 +10,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
                        #url(r'^$', "rango.views.home"),
-                       url(r'^rango$', include(urls))
+                       url(r'^rango$', include(urls)),
+                        url(r'^index$', include(urls))
 
 )
