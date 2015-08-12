@@ -24,6 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
+
 ALLOWED_HOSTS = []
 
 
@@ -36,7 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rango',
+    #'rango',
+    'rango'
 
 )
 
@@ -81,7 +83,28 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'second_static')
+# ALWAYS SET THESE DIRS
 
 STATIC_URL = '/static/'
+static_project_path=os.path.join(BASE_DIR, 'static')
+#STATICFILES_DIRS=(static_project_path,)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+#PROJECT_PATH=('/Users/johnanderson1/Dropbox/python/Django/tango_with_django_project/static/',)
+# THIS allows you to use templates from path/to/project/templates DIR
+#TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+TEMPLATE_DIRS=('/Users/johnanderson1/Dropbox/python/Django/tango_with_django_project/templates',)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+	"django.contrib.auth.context_processors.auth",
+	"django.core.context_processors.debug",
+	"django.core.context_processors.i18n",
+	"django.core.context_processors.media",  # This allows you to use MEDIA_URL in the templates
+	"django.core.context_processors.static", # This allows you to use STATIC_URL in the templates
+	#"django.core.context_processors.tz",
+	#"django.contrib.messages.context_processors.messages",
+	#"django.core.context_processors.request",
+)
